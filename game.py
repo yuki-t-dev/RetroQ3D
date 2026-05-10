@@ -167,10 +167,10 @@ class Game:
             for j in range(4):
                 try:
                     img = pyxel.Image(256, 224)
-                    img.load(0, 0, f"assets/backup/backup2/{i}_{j}.png")
+                    img.load(0, 0, f"assets/{i}_{j}.png")
                     self.images[(i, j)] = img
                 except Exception as e:
-                    print(e)
+                    pass
 
         self.location = [
             [
@@ -203,8 +203,8 @@ class Game:
             ]
         ]
         self.player_x = 0
-        self.player_y = 9
-        self.player_dir = Direction.North
+        self.player_y = 0
+        self.player_dir = Direction.East
 
         self.wall_se = pyxel.Sound()
         self.wall_se.mml("t90 o0 l32 gfedc")
@@ -241,10 +241,11 @@ class Game:
             for j in [1, 3, 2, 0]:
                 direction = (self.player_dir + j) % len(Direction)
                 if WALLS[y][x][direction]:
-                    print(i, j)
+                    #print(i, j)
                     if (i, j) in self.images:
                         pyxel.dither(0.8*depth/12+0.1)
                         pyxel.blt(0,0,self.images[i, j], 0,0,256,224,7)
 
         pyxel.dither(1.0)
+        pyxel.rect(30,10,80,6,0)
         pyxel.text(30,10, f"x:{self.player_x}, y:{self.player_y}, dir:{Direction(self.player_dir).name}",7)
