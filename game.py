@@ -167,10 +167,10 @@ class Game:
             for j in range(4):
                 try:
                     img = pyxel.Image(256, 224)
-                    img.load(0, 0, f"assets/{i}_{j}.png")
+                    img.load(0, 0, f"assets/backup/backup2/{i}_{j}.png")
                     self.images[(i, j)] = img
                 except Exception as e:
-                    pass
+                    print(e)
 
         self.location = [
             [
@@ -206,20 +206,25 @@ class Game:
         self.player_y = 9
         self.player_dir = Direction.North
 
+        self.wall_se = pyxel.Sound()
+        self.wall_se.mml("t90 o0 l32 gfedc")
+
         pyxel.run(self.update, self.draw)
     def update(self):
 
-        if pyxel.btnp(pyxel.KEY_UP):
+        if pyxel.btnp(pyxel.KEY_UP) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_UP):
             if WALLS[self.player_y][self.player_x][self.player_dir] == WallType.TYPE_NONE:
                 dx, dy = playervector[self.player_dir]
                 self.player_x = (self.player_x + dx) % FIELD_WIDTH
                 self.player_y = (self.player_y + dy) % FIELD_HEIGHT
+            elif WALLS[self.player_y][self.player_x][self.player_dir] == WallType.TYPE_WALL:
+                pyxel.play(0, self.wall_se)
 
-        elif pyxel.btnp(pyxel.KEY_LEFT):
-            self.player_dir = (self.player_dir-1) % len(Direction)
-        elif pyxel.btnp(pyxel.KEY_RIGHT):
+        elif pyxel.btnp(pyxel.KEY_LEFT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT):
             self.player_dir = (self.player_dir+1) % len(Direction)
-        elif pyxel.btnp(pyxel.KEY_DOWN):
+        elif pyxel.btnp(pyxel.KEY_RIGHT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT):
+            self.player_dir = (self.player_dir-1) % len(Direction)
+        elif pyxel.btnp(pyxel.KEY_DOWN) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_DOWN):
             self.player_dir = (self.player_dir+2) % len(Direction)
 
     def draw(self):
