@@ -12,7 +12,7 @@ class WallType(IntEnum):
     TYPE_WALL = 1
     TYPE_DOOR = 2
 
-FIELD_WIDTH = FIELD_HEIGHT = 20
+FIELD_WIDTH = FIELD_HEIGHT = 10
 
 WALLS = [[[WallType.TYPE_WALL] * len(Direction) for _ in range(FIELD_WIDTH)] for _ in range(FIELD_HEIGHT)]
 
@@ -36,7 +36,115 @@ def open_wall(x, y, direction):
         nx = (x + 1) % FIELD_WIDTH
         WALLS[y][nx][Direction.West] = WallType.TYPE_NONE
 
-open_wall(0,0,Direction.North);open_wall(0,0,Direction.East)
+open_wall(0,0,Direction.South);open_wall(0,0,Direction.East)
+open_wall(0,1,Direction.North);open_wall(0,1,Direction.South)
+open_wall(0,2,Direction.North);open_wall(0,2,Direction.South)
+open_wall(0,3,Direction.North);open_wall(0,3,Direction.South)
+open_wall(0,4,Direction.North);open_wall(0,4,Direction.South)
+open_wall(0,5,Direction.North);open_wall(0,5,Direction.South)
+open_wall(0,6,Direction.North);open_wall(0,6,Direction.South)
+open_wall(0,7,Direction.North);open_wall(0,7,Direction.South)
+open_wall(0,8,Direction.North);open_wall(0,8,Direction.South)
+open_wall(0,9,Direction.East);open_wall(0,9,Direction.North)
+
+open_wall(1,0,Direction.East);open_wall(1,0,Direction.West)
+open_wall(1,1,Direction.South);open_wall(1,1,Direction.East)
+open_wall(1,2,Direction.North);open_wall(1,2,Direction.South);open_wall(1,2,Direction.East)
+open_wall(1,3,Direction.North);open_wall(1,3,Direction.East);open_wall(1,3,Direction.South)
+open_wall(1,4,Direction.North);open_wall(1,4,Direction.South);open_wall(1,4,Direction.East)
+open_wall(1,5,Direction.North);open_wall(1,5,Direction.South)
+open_wall(1,6,Direction.North);open_wall(1,6,Direction.South)
+open_wall(1,7,Direction.North);open_wall(1,7,Direction.South)
+open_wall(1,8,Direction.East);open_wall(1,8,Direction.North)
+open_wall(1,9,Direction.East);open_wall(1,9,Direction.West)
+
+open_wall(2,0,Direction.East);open_wall(2,0,Direction.West)
+open_wall(2,1,Direction.West);open_wall(2,1,Direction.South)
+open_wall(2,2,Direction.North);open_wall(2,2,Direction.South);open_wall(2,2,Direction.West)
+open_wall(2,3,Direction.North);open_wall(2,3,Direction.South);open_wall(2,3,Direction.West)
+open_wall(2,4,Direction.North);open_wall(2,4,Direction.West)
+open_wall(2,5,Direction.South);open_wall(2,5,Direction.East)
+open_wall(2,6,Direction.North);open_wall(2,6,Direction.East);open_wall(2,6,Direction.South)
+open_wall(2,7,Direction.North);open_wall(2,7,Direction.East)
+open_wall(2,8,Direction.West);open_wall(2,8,Direction.East)
+open_wall(2,9,Direction.East);open_wall(2,9,Direction.West)
+
+open_wall(3,0,Direction.East);open_wall(3,0,Direction.West);open_wall(3,0,Direction.South)
+open_wall(3,1,Direction.North);open_wall(3,1,Direction.South)
+open_wall(3,2,Direction.North);open_wall(3,2,Direction.South)
+open_wall(3,3,Direction.North);open_wall(3,3,Direction.South)
+open_wall(3,4,Direction.North);open_wall(3,4,Direction.South)
+open_wall(3,5,Direction.North);open_wall(3,5,Direction.South);open_wall(3,5,Direction.East);open_wall(3,5,Direction.West)
+open_wall(3,6,Direction.North);open_wall(3,6,Direction.South);open_wall(3,6,Direction.East);open_wall(3,6,Direction.West)
+open_wall(3,7,Direction.North);open_wall(3,7,Direction.East);open_wall(3,7,Direction.West)
+open_wall(3,8,Direction.East);open_wall(3,8,Direction.West)
+open_wall(3,9,Direction.East);open_wall(3,9,Direction.West)
+
+open_wall(4,0,Direction.East);open_wall(4,0,Direction.West)
+open_wall(4,1,Direction.South);open_wall(4,1,Direction.East)
+open_wall(4,2,Direction.North);open_wall(4,2,Direction.South)
+open_wall(4,3,Direction.North);open_wall(4,3,Direction.South)
+open_wall(4,4,Direction.North);open_wall(4,4,Direction.East)
+open_wall(4,5,Direction.South);open_wall(4,5,Direction.West)
+open_wall(4,6,Direction.North);open_wall(4,6,Direction.South);open_wall(4,6,Direction.West)
+open_wall(4,7,Direction.North);open_wall(4,7,Direction.West)
+open_wall(4,8,Direction.East);open_wall(4,8,Direction.West)
+open_wall(4,9,Direction.East);open_wall(4,9,Direction.West)
+
+open_wall(5,0,Direction.East);open_wall(5,0,Direction.West)
+open_wall(5,1,Direction.West)
+open_wall(5,2,Direction.South);open_wall(5,2,Direction.East)
+open_wall(5,3,Direction.North);open_wall(5,3,Direction.East)
+open_wall(5,4,Direction.South);open_wall(5,4,Direction.West);open_wall(5,4,Direction.East)
+open_wall(5,5,Direction.North);open_wall(5,5,Direction.East)
+open_wall(5,6,Direction.North);open_wall(5,6,Direction.South)
+open_wall(5,7,Direction.North);open_wall(5,7,Direction.South)
+open_wall(5,8,Direction.West);open_wall(5,8,Direction.North)
+open_wall(5,9,Direction.East);open_wall(5,9,Direction.West)
+
+open_wall(6,0,Direction.East);open_wall(6,0,Direction.West);open_wall(6,1,Direction.South)
+open_wall(6,1,Direction.South);open_wall(6,1,Direction.North)
+open_wall(6,2,Direction.North);open_wall(6,2,Direction.South);open_wall(6,2,Direction.East);open_wall(6,2,Direction.West)
+open_wall(6,3,Direction.North);open_wall(6,3,Direction.East);open_wall(6,3,Direction.West)
+open_wall(6,4,Direction.South);open_wall(6,4,Direction.East);open_wall(6,4,Direction.West)
+open_wall(6,5,Direction.West);open_wall(6,5,Direction.North)
+open_wall(6,6,Direction.South);open_wall(6,6,Direction.East)
+open_wall(6,7,Direction.East);open_wall(6,7,Direction.South);open_wall(6,7,Direction.North)
+open_wall(6,8,Direction.North);open_wall(6,8,Direction.East)
+open_wall(6,9,Direction.East);open_wall(6,9,Direction.West)
+
+open_wall(7,0,Direction.East);open_wall(7,0,Direction.West)
+open_wall(7,1,Direction.East)
+open_wall(7,2,Direction.East);open_wall(7,2,Direction.South);open_wall(7,2,Direction.West)
+open_wall(7,3,Direction.North);open_wall(7,3,Direction.West);open_wall(7,3,Direction.East);open_wall(7,3,Direction.South)
+open_wall(7,4,Direction.South);open_wall(7,4,Direction.East);open_wall(7,4,Direction.West);open_wall(7,4,Direction.North)
+open_wall(7,5,Direction.West);open_wall(7,5,Direction.East);open_wall(7,5,Direction.North)
+open_wall(7,6,Direction.South);open_wall(7,6,Direction.West);open_wall(7,6,Direction.East)
+open_wall(7,7,Direction.South);open_wall(7,7,Direction.West);open_wall(7,7,Direction.East);open_wall(7,7,Direction.North)
+open_wall(7,8,Direction.East);open_wall(7,8,Direction.North);open_wall(7,8,Direction.West)
+open_wall(7,9,Direction.East);open_wall(7,9,Direction.West)
+
+open_wall(8,0,Direction.East);open_wall(8,0,Direction.West)
+open_wall(8,1,Direction.East);open_wall(8,1,Direction.West)
+open_wall(8,2,Direction.West);open_wall(8,2,Direction.South)
+open_wall(8,3,Direction.North);open_wall(8,3,Direction.West)
+open_wall(8,4,Direction.South);open_wall(8,4,Direction.East);open_wall(8,4,Direction.West)
+open_wall(8,5,Direction.West);open_wall(8,5,Direction.North);open_wall(8,5,Direction.East)
+open_wall(8,6,Direction.East);open_wall(8,6,Direction.South);open_wall(8,6,Direction.West)
+open_wall(8,7,Direction.South);open_wall(8,7,Direction.North);open_wall(8,7,Direction.East);open_wall(8,7,Direction.West)
+open_wall(8,8,Direction.East);open_wall(8,8,Direction.West);open_wall(8,8,Direction.South);open_wall(8,8,Direction.North)
+open_wall(8,9,Direction.East);open_wall(8,9,Direction.West);open_wall(8,9,Direction.North)
+
+open_wall(9,0,Direction.West)
+open_wall(9,1,Direction.South);open_wall(9,1,Direction.West)
+open_wall(9,2,Direction.North);open_wall(9,2,Direction.South)
+open_wall(9,3,Direction.North);open_wall(9,3,Direction.South)
+open_wall(9,4,Direction.South);open_wall(9,4,Direction.North);open_wall(9,4,Direction.West)
+open_wall(9,5,Direction.West);open_wall(9,5,Direction.North)
+open_wall(9,6,Direction.West);open_wall(9,6,Direction.South)
+open_wall(9,7,Direction.South);open_wall(9,7,Direction.North);open_wall(9,7,Direction.West)
+open_wall(9,8,Direction.North);open_wall(9,8,Direction.West)
+open_wall(9,9,Direction.West)
 
 playervector = {
     Direction.North: (0, -1),
@@ -95,7 +203,7 @@ class Game:
             ]
         ]
         self.player_x = 0
-        self.player_y = 19
+        self.player_y = 9
         self.player_dir = Direction.North
 
         pyxel.run(self.update, self.draw)
@@ -128,6 +236,7 @@ class Game:
             for j in [1, 3, 2, 0]:
                 direction = (self.player_dir + j) % len(Direction)
                 if WALLS[y][x][direction]:
+                    print(i, j)
                     if (i, j) in self.images:
                         pyxel.dither(0.8*depth/12+0.1)
                         pyxel.blt(0,0,self.images[i, j], 0,0,256,224,7)
